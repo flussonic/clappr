@@ -566,6 +566,7 @@ export default class HLS extends HTML5VideoPlayback {
 HLS.canPlay = function(resource, mimeType) {
   const resourceParts = resource.split('?')[0].match(/.*\.(.*)$/) || []
   const isHls = ((resourceParts.length > 1 && resourceParts[1].toLowerCase() === 'm3u8') ||
+        (resourceParts.length > 1 && resourceParts[1].toLowerCase() === 'fmp4') ||
         mimeType === 'application/x-mpegURL' || mimeType === 'application/vnd.apple.mpegurl')
 
   return !!(HLSJS.isSupported() && isHls)
